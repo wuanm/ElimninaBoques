@@ -154,4 +154,25 @@ function coalisionPelotaTopeCielo(){
     } 
   }
 }
+function touchMoved() {
+  // Obtenemos la posición del dedo del usuario en la pantalla
+  let touchX = touches[0].x;
+
+  // Obtenemos la posición actual del tope
+  let topeX = miTope.x + miTope.x2 / 2;
+
+  // Calculamos la distancia entre la posición actual del tope y la posición del dedo del usuario
+  let distancia = touchX - topeX;
+
+  // Movemos el tope en función de la distancia calculada
+  if (distancia > 0) {
+    miTope.move(derecha);
+  } else {
+    miTope.move(izquierda);
+  }
+
+  // Prevenimos que la pantalla se desplace cuando el usuario mueve el tope con el touch
+  return false;
+}
+
 
